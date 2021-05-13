@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { Redirect } from "react-router";
 import Logo from "../assets/github.png";
+import {FiArrowRight} from "react-icons/fi";
+import {useParams} from 'react-router-dom';
 
 function Login() {
+
   function fexibir(verifica) {
     if (verifica == "Nenhum usuário foi digitado!") {
       return <p className="warning" style={{ color: "red" }}>{verifica}</p>;
@@ -52,7 +55,8 @@ function Login() {
   const [renderi, setRenderi] = useState(false);
 
   if (renderi){
-    return <Redirect push to = "/profile"/>
+    let id = user;
+    return <Redirect push to = {{pathname: "/profile/:id", state: id}}/>
   }
 
   return (
@@ -66,7 +70,7 @@ function Login() {
         onChange={handleUser}
       ></input>
       <button className="btn" onClick={getUser}>
-        Entrar
+        Entrar <FiArrowRight style={{fontSize: 18, marginLeft: 5}}/>
       </button>
     </div>
   );

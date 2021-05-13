@@ -10,7 +10,7 @@ function Routes() {
   <BrowserRouter>
     <Switch>
 
-    <Route exact path="/profile">
+    <Route exact path="/profile/:id">
         <Profile />
     </Route>
 
