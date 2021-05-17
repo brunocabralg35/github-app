@@ -16,8 +16,8 @@ $btn: #ffcf01;
   font-weight: 400;
 }
 
-.hide{
-    display: none;
+.hide {
+  display: none;
 }
 
 @mixin mbmt {
@@ -94,16 +94,15 @@ body {
   box-shadow: 10px 5px 5px $background;
   height: 30vh;
   justify-content: center;
+  margin-top: 200px;
 
   .animacao {
-    width: 50px;
-    height: 50px;
+    width: 150px;
+    height: 150px;
     background-color: transparent;
-    border: 2px solid $btn;
     align-self: center;
     justify-self: center;
     border-radius: 50%;
-    animation: loading 1.5s linear 1s infinite;
   }
 
   .bloco {
@@ -113,89 +112,107 @@ body {
     background-color: $background;
     max-width: 300px;
     box-shadow: 10px 5px 5px $background;
-  }
+    
 
-  .text {
-    color: $text2;
-  }
+    .text {
+      color: $text2;
+    }
 
-  .title {
-    font-weight: 700;
-    font-size: 30px;
-    color: $btn;
-  }
+    .title {
+      font-weight: 700;
+      font-size: 30px;
+      color: $btn;
+    }
 
-  .avatar-img {
-    width: 130px;
-    border: 2px solid $text2;
-    border-radius: 50%;
-    margin: auto;
-  }
+    .avatar-img {
+      width: 130px;
+      border: 2px solid $text2;
+      border-radius: 50%;
+      margin: auto;
+    }
 
-  .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px;
-
-    .header-button {
-      border: none;
-      background-color: transparent;
-      cursor: pointer;
-      text-align: center;
+    .header {
       display: flex;
       align-items: center;
-      font-weight: 300;
+      justify-content: space-between;
+      padding: 15px;
 
-      .header-icon {
-        margin-left: 5px;
-        color: $btnlogOut;
-        font-size: 20px;
+      .header-button {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        font-weight: 300;
+
+        .header-icon {
+          margin-left: 5px;
+          color: $btnlogOut;
+          font-size: 20px;
+        }
       }
     }
-  }
 
-  .section1 {
-    padding: 15px;
-    @include mbmt();
-    display: flex;
-    flex-direction: column;
-  }
-
-  .section2 {
-    padding: 15px;
-    @include mbmt();
-    background-color: $backgroundCard;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-
-    .boxtext {
-      font-size: 35px;
-      font-weight: 700;
+    .section1 {
+      padding: 15px;
+      @include mbmt();
+      display: flex;
+      flex-direction: column;
     }
 
-    .box {
-      font-weight: 300;
-    }
-  }
+    .section2 {
+      padding: 15px;
+      @include mbmt();
+      background-color: $backgroundCard;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
 
-  .section3 {
-    padding: 15px;
-    @include mbmt();
+      .boxtext {
+        font-size: 35px;
+        font-weight: 700;
+      }
+
+      .box {
+        font-weight: 300;
+      }
+    }
+
+    .section3 {
+      padding: 15px;
+      @include mbmt();
+    }
   }
 }
 
-@keyframes loading {
-  from {
-    border-bottom-color: transparent;
-    transform: rotate(0deg);
-    border: 2px dotted $btn;
+.NotFound{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .NotFoundText{
+    font-family: "Oswald", Arial, Helvetica, sans-serif;
+    font-size: 35px;
+    color: $text2;
   }
-  to {
-    border-bottom-color: transparent;
-    transform: rotate(360deg);
-    border: 2px dotted #8d7923;
+
+  .BackBtn{
+    padding: 15px;
+    width: 150px;
+    border: none;
+    background-color: $btn;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover{
+      background-color: #8d7923;
+      color: $text2;
+    }
+
   }
 }

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { FiLogOut } from "react-icons/fi";
+import load from "../assets/loading.gif";
+import { red } from "@material-ui/core/colors";
 
 export default function Profile() {
   let history = useHistory();
@@ -16,7 +18,6 @@ export default function Profile() {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
         setAvatar(data.avatar_url);
         setNome(data.name);
         setEmail(data.login + "@gmail.com");
@@ -54,16 +55,16 @@ export default function Profile() {
 
   const [loading, setLoading] = useState(false);
 
-  useEffect(()=>{
-      setTimeout(() => {
-            setLoading(true);
-      }, 5000);
-  },[])
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(true);
+    }, 4000);
+  }, []);
 
   return (
     <div className="container-profile">
-      <div className={ loading ? "animacao hide" : "animacao"}></div>
-      <div className={ loading ? "bloco" : "hide"}>
+      <img className={loading ? "animacao hide" : "animacao"} src={load}></img>
+      <div className={loading ? "bloco" : "hide"}>
         <div className="header mb">
           <p className="header-login text">#{login}</p>
           <button
@@ -100,7 +101,9 @@ export default function Profile() {
             <p className="box text">Seguindo</p>
           </div>
 
-          <div className="box">
+          <div className="box" onClick={()=>{
+            history.push(`/repos/${username}`)
+          }}>
             <div className="repos-user text boxtext">{repos}</div>
             <p className="box text">Repositórios</p>
           </div>

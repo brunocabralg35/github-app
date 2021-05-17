@@ -4,6 +4,7 @@ import { Switch } from "react-router-dom";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import PageNotFound from "./pages/PageNotFound";
+import Repos from "./pages/Repos";
 
 function Routes() {
   return (
@@ -11,6 +12,10 @@ function Routes() {
       <Switch>
         <Route exact path="/profile/:username">
           <Profile />
+        </Route>
+
+        <Route exact path="/repos/:username">
+          <Repos />
         </Route>
 
         <Route exact path="/profile/">
@@ -22,7 +27,7 @@ function Routes() {
         </Route>
 
         <Route exact path="*">
-          <Redirect to="/"></Redirect>
+          <PageNotFound />
         </Route>
       </Switch>
     </BrowserRouter>
