@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Redirect } from "react-router";
 import Logo from "../assets/github.png";
 import {FiArrowRight} from "react-icons/fi";
-import {useParams} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 
 function Login() {
+
+  let history = useHistory();
 
   function fexibir(verifica) {
     if (verifica == "Nenhum usuário foi digitado!") {
@@ -55,8 +56,7 @@ function Login() {
   const [renderi, setRenderi] = useState(false);
 
   if (renderi){
-    let id = user;
-    return <Redirect push to = {{pathname: "/profile/:id", state: id}}/>
+    history.push(`/profile/${user}`);
   }
 
   return (
