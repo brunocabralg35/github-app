@@ -112,7 +112,6 @@ body {
     background-color: $background;
     max-width: 300px;
     box-shadow: 10px 5px 5px $background;
-    
 
     .text {
       color: $text2;
@@ -177,6 +176,15 @@ body {
 
       .box {
         font-weight: 300;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        
+        &:hover{
+          background-color: $background;
+          padding: 10px;
+          border-radius: 8px;
+        }
+
       }
     }
 
@@ -187,20 +195,20 @@ body {
   }
 }
 
-.NotFound{
+.NotFound {
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  .NotFoundText{
+  .NotFoundText {
     font-family: "Oswald", Arial, Helvetica, sans-serif;
     font-size: 35px;
     color: $text2;
   }
 
-  .BackBtn{
+  .BackBtn {
     padding: 15px;
     width: 150px;
     border: none;
@@ -209,10 +217,69 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
 
-    &:hover{
+    &:hover {
       background-color: #8d7923;
       color: $text2;
     }
+  }
+}
 
+.container-lista {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: $background;
+  max-width: 300px;
+  margin: auto;
+  box-shadow: 10px 5px 5px $background;
+  height: auto;
+  justify-content: flex-start;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  text-align: center;
+
+  .title-repos{
+    color: $text2;
+    font-family: "Oswald", Arial, Helvetica, sans-serif;
+  }
+
+  .Lista {
+    margin-top: 10px;
+    list-style: none;
+
+    .card-items {
+      height: 50px;
+      width: 80%;
+      margin: auto;
+      background-color: $backgroundCard;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      padding: 10px;
+
+      .list-item {
+        color: $text2;
+      }
+    }
+  }
+
+  .lista-button {
+    align-self: center;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    font-weight: 300;
+    color: $text2;
+    position: relative;
+    top: 0;
+    left: 0;
+
+    .lista-icon {
+      margin-left: 5px;
+      color: $btnlogOut;
+      font-size: 20px;
+    }
   }
 }

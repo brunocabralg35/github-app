@@ -10,33 +10,33 @@ const Repos = () => {
 
   let userAPI = url + username;
 
-  let reposURL = userAPI + "/repos";
+  let followingURL = userAPI + "/following";
 
-  let pg = "Repositórios";
+  let pg = "Seguindo";
 
-  function getRepos() {
+  function getFoll() {
     let arrayF = [];
 
-    fetch(reposURL)
+    fetch(followingURL)
       .then((response) => {
         return response.json();
       })
       .then((data) => {
         data.forEach((dados) => {
-          arrayF.push("#" + dados.name);
+          arrayF.push("@" + dados.login);
         });
-        setReposList(arrayF);
+        setFollowingList(arrayF);
       })
       .catch((err) => console.log(err));
   }
 
-  const [Reposlist, setReposList] = useState([]);
+  const [Followinglist, setFollowingList] = useState([]);
 
-  getRepos();
+  getFoll();
 
   return (
     <div>
-      <Lista pg={pg} items={Reposlist} />
+      <Lista pg={pg} items={Followinglist} />
     </div>
   );
 };

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { FiLogOut } from "react-icons/fi";
 import load from "../assets/loading.gif";
-import { red } from "@material-ui/core/colors";
 
 export default function Profile() {
   let history = useHistory();
@@ -58,7 +57,7 @@ export default function Profile() {
   useEffect(() => {
     setTimeout(() => {
       setLoading(true);
-    }, 4000);
+    }, 2000);
   }, []);
 
   return (
@@ -91,12 +90,16 @@ export default function Profile() {
         </div>
 
         <div className="section2">
-          <div className="box">
+          <div className="box" onClick={()=>{
+            history.push(`/followers/${username}`)
+          }}>
             <div className="seguidores-user text boxtext">{followers}</div>
             <p className="box text">Seguidores</p>
           </div>
 
-          <div className="box">
+          <div className="box" onClick={()=>{
+            history.push(`/following/${username}`)
+          }}>
             <div className="seguindo-user text boxtext">{following}</div>
             <p className="box text">Seguindo</p>
           </div>
